@@ -1,15 +1,40 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
-import "./styles/reset.css";
+import User from "./components/User";
+import logoSearch from "./images/search.svg";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  withRouter,
+} from "react-router-dom";
 
 function App() {
-  const [user, setUser] = useState("");
+  const [username, setUsername] = useState();
   return (
-    <div>
-      <Header setUser={setUser} />
-      <p> Current user: {user}</p>
+    <Router>
+      <div>
+        <Header setUsername={setUsername} />
+        <Switch>
+          <Route path="/users/:id">
+            <User username={username} />
+          </Route>
+          <Route path="/">
+            <Search />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+function Search() {
+  return (
+    <div className="search">
+      <img src={logoSearch} alt="Search" />
+      <p className="search-title">Start with searching a GitHub user</p>
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);
