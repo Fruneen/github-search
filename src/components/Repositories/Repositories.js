@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "../styles/index.css";
-import Loader from "../service/loader.js";
-import ReposNotFoundLogo from "../images/reposNotFound.svg";
+import Loader from "../../screens/Loader";
+import ReposNotFound from "../../screens/ReposNotFound";
+import Next from "./icons/next.svg";
+import Prev from "./icons/prev.svg";
+import "./repositories.css";
 import ReactPaginate from "react-paginate";
 import { withRouter } from "react-router-dom";
 
@@ -36,6 +38,7 @@ function Repositories(props) {
   const perPage = 3;
   const reposLength = reposInfo.length;
   const offset = currentPage * perPage;
+  const pageCount = Math.ceil(reposInfo.length / perPage);
   const currentPageData = reposInfo
     .slice(offset, offset + perPage)
     .map((repo) => {
@@ -53,11 +56,11 @@ function Repositories(props) {
         </div>
       );
     });
-  const pageCount = Math.ceil(reposInfo.length / perPage);
 
-  function handlePageClick({ selected: selectedPage }) {
+  const handlePageClick = ({ selected: selectedPage }) => {
     setCurrentPage(selectedPage);
-  }
+  };
+
   if (error) {
     return <div>Ошибка: {error.message}</div>;
   } else if (!isLoaded) {
@@ -88,8 +91,8 @@ function Repositories(props) {
           />
           <ReactPaginate
             marginPagesDisplayed={1}
-            previousLabel={<Prev />}
-            nextLabel={<Next />}
+            previousLabel={<img src={Prev} alt="prev" />}
+            nextLabel={<img src={Next} alt="prev" />}
             pageCount={pageCount}
             onPageChange={handlePageClick}
             containerClassName={"container"}
@@ -113,48 +116,5 @@ const CountPages = (props) => {
     </p>
   );
 };
-function ReposNotFound() {
-  return (
-    <div
-      className="state-container"
-      style={{ width: "720px", minHeight: "70vh" }}
-    >
-      <img src={ReposNotFoundLogo} alt="Repos not found logo" />
-      <p className="state-title">Repository list is empty</p>
-    </div>
-  );
-}
 
-const Next = () => {
-  return (
-    <svg
-      width="8"
-      height="12"
-      viewBox="0 0 8 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M1 1L6 6L1 11" stroke="#808080" strokeWidth="2" />
-    </svg>
-  );
-};
-
-const Prev = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="8"
-      height="12"
-      fill="none"
-      viewBox="0 0 8 12"
-    >
-      <path
-        fill="#808080"
-        fillRule="evenodd"
-        d="M3.414 6l4.293-4.293L6.293.293.586 6l5.707 5.707 1.414-1.414L3.414 6z"
-        clipRule="evenodd"
-      ></path>
-    </svg>
-  );
-};
 export default withRouter(Repositories);

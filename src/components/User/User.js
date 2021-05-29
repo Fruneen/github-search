@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Repositories from "./Repositories";
-import Loader from "../service/loader.js";
-import "../styles/index.css";
-import userNotFoundLogo from "../images/userNotFound.svg";
+import Repositories from "../Repositories/Repositories";
+import Loader from "../../screens/Loader";
+import UserNotFound from "../../screens/UserNotFound";
 import { withRouter, useParams } from "react-router-dom";
+import "./user.css";
 
 function User(props) {
   const params = useParams();
@@ -37,7 +37,6 @@ function User(props) {
   }, [URL]);
 
   if (username !== params.id) setUsername(params.id);
-
   if (error) {
     return <div>Ошибка: {error.message}</div>;
   } else if (!isLoaded) {
@@ -118,15 +117,6 @@ function User(props) {
       </div>
     );
   }
-}
-
-function UserNotFound() {
-  return (
-    <div className="state-container">
-      <img src={userNotFoundLogo} alt="User not found logo" />
-      <p className="state-title">User not found</p>
-    </div>
-  );
 }
 
 export default withRouter(User);

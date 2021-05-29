@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/index.css";
-import logoGitHub from "../images/github.svg";
+import logoGitHub from "./icons/github.svg";
+import "./header.css";
 import { useHistory, withRouter, Link } from "react-router-dom";
 
 function Header(props) {

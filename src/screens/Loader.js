@@ -1,5 +1,6 @@
-// 0064eb
-function Loader() {
+import "./screens.css";
+
+const Loader = () => {
   return (
     <div
       style={{
@@ -48,6 +49,6 @@ function Loader() {
       </svg>
     </div>
   );
-}
+};
 
 export default Loader;
