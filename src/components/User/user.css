@@ -5,11 +5,17 @@
   font-family: "Inter", sans-serif;
 }
 
+.profile-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .profile {
   display: flex;
-  justify-content: space-between;
-  padding: 40px 50px;
-  max-width: 1200px;
+  justify-content: flex-start;
+  padding: 40px 30px 10px 30px;
+  width: 1200px;
 }
 .profile-info {
   margin-right: 100px;
@@ -34,10 +40,27 @@
 }
 .follow-container {
   margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .profile-info__followers {
   margin-right: 16px;
 }
 .person-icon {
   margin-right: 8px;
+}
+
+@media screen and (max-width: 834px) {
+  .profile {
+    flex-direction: column;
+  }
+  .profile-info {
+    margin-right: 0;
+    margin-bottom: 50px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .profile {
+    padding: 20px 20px 10px 20px;
+  }
 }

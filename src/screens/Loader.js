@@ -2,24 +2,16 @@ import "./screens.css";
 
 const Loader = () => {
   return (
-    <div
-      style={{
-        width: "300px",
-        position: "absolute",
-        left: "50%",
-        top: "50%",
-        transform: "translate(-30%, -40%)",
-      }}
-    >
+    <div className="screen-container">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         x="0"
         y="0"
         version="1.1"
-        viewBox="0 0 100 100"
-        xmlSpace="preserve"
+        height="30"
+        width="130"
       >
-        <circle cx="6" cy="50" r="5" fill="#0064eb">
+        <circle cx="15" cy="15" r="15" fill="#0064eb">
           <animate
             attributeName="opacity"
             begin="0.1"
@@ -28,7 +20,7 @@ const Loader = () => {
             values="0;1;0"
           ></animate>
         </circle>
-        <circle cx="26" cy="50" r="5" fill="#0064eb">
+        <circle cx="65" cy="15" r="15" fill="#0064eb">
           <animate
             attributeName="opacity"
             begin="0.2"
@@ -37,7 +29,7 @@ const Loader = () => {
             values="0;1;0"
           ></animate>
         </circle>
-        <circle cx="46" cy="50" r="5" fill="#0064eb">
+        <circle cx="115" cy="15" r="15" fill="#0064eb">
           <animate
             attributeName="opacity"
             begin="0.3"

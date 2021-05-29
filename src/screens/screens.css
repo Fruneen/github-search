@@ -1,16 +1,14 @@
-.state-container {
+.screen-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 88vh;
   user-select: none;
+  height: calc(100vh - 80px);
 }
-.state-title {
+.screen-title {
   font-size: 22px;
-  line-height: 140%;
   color: #808080;
-  max-width: 210px;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 1.5rem;
 }

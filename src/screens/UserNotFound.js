@@ -3,9 +3,9 @@ import "./screens.css";
 
 const UserNotFound = () => {
   return (
-    <div className="state-container">
+    <div className="screen-container">
       <img src={userNotFoundLogo} alt="User not found logo" />
-      <p className="state-title">User not found</p>
+      <p className="screen-title">User not found</p>
     </div>
   );
 };

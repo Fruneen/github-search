@@ -3,12 +3,9 @@ import "./screens.css";
 
 const ReposNotFound = () => {
   return (
-    <div
-      className="state-container"
-      style={{ width: "720px", minHeight: "70vh" }}
-    >
+    <div className="screen-container">
       <img src={ReposNotFoundLogo} alt="Repos not found logo" />
-      <p className="state-title">Repository list is empty</p>
+      <p className="screen-title">Repository list is empty</p>
     </div>
   );
 };

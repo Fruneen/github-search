@@ -3,9 +3,11 @@ import "./screens.css";
 
 const Search = () => {
   return (
-    <div className="state-container">
+    <div className="screen-container">
       <img src={logoSearch} alt="Search" />
-      <p className="state-title">Start with searching a GitHub user</p>
+      <p className="screen-title">
+        Start with searching <br></br> a GitHub user
+      </p>
     </div>
   );
 };

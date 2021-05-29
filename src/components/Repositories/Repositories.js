@@ -25,6 +25,10 @@ function Repositories(props) {
       .then((res) => res.json())
       .then(
         (result) => {
+          // setTimeout(() => {
+          //   setIsLoaded(true);
+          //   setReposInfo(result);
+          // }, 200000);
           setIsLoaded(true);
           setReposInfo(result);
         },
@@ -64,11 +68,7 @@ function Repositories(props) {
   if (error) {
     return <div>Ошибка: {error.message}</div>;
   } else if (!isLoaded) {
-    return (
-      <div>
-        <Loader />
-      </div>
-    );
+    return <Loader />;
   } else if (!reposInfo.length) {
     return (
       <div>
