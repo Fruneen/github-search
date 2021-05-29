@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Repositories from "./Repositories";
 import Loader from "../service/loader.js";
 import "../styles/index.css";
+import userNotFoundLogo from "../images/userNotFound.svg";
 import { withRouter, useParams } from "react-router-dom";
 
 function User(props) {
@@ -10,6 +11,7 @@ function User(props) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [info, setInfo] = useState([]);
   const [username, setUsername] = useState(props.username);
+  const URL = `https://api.github.com/users/${username}`;
 
   useEffect(() => {
     if (props.username !== "undefined") {
@@ -18,9 +20,9 @@ function User(props) {
   }, [props.username, params.id]);
 
   useEffect(() => {
-    console.log("FETCH USER", `https://api.github.com/users/${username}`);
+    console.log("FETCH USER", URL);
     setIsLoaded(false);
-    fetch(`https://api.github.com/users/${username}`)
+    fetch(URL)
       .then((res) => res.json())
       .then(
         (result) => {
@@ -32,7 +34,9 @@ function User(props) {
           setError(error);
         }
       );
-  }, [props.username, username, params.id]);
+  }, [URL]);
+
+  if (username !== params.id) setUsername(params.id);
 
   if (error) {
     return <div>Ошибка: {error.message}</div>;
@@ -40,6 +44,17 @@ function User(props) {
     return (
       <div>
         <Loader />
+      </div>
+    );
+  } else if (
+    info.message === "Not Found" ||
+    info.login === "undefined" ||
+    username === "undefined"
+  ) {
+    return (
+      <div>
+        {" "}
+        <UserNotFound />
       </div>
     );
   } else {
@@ -103,6 +118,15 @@ function User(props) {
       </div>
     );
   }
+}
+
+function UserNotFound() {
+  return (
+    <div className="state-container">
+      <img src={userNotFoundLogo} alt="User not found logo" />
+      <p className="state-title">User not found</p>
+    </div>
+  );
 }
 
 export default withRouter(User);

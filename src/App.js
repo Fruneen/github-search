@@ -30,9 +30,9 @@ function App() {
 
 function Search() {
   return (
-    <div className="search">
+    <div className="state-container">
       <img src={logoSearch} alt="Search" />
-      <p className="search-title">Start with searching a GitHub user</p>
+      <p className="state-title">Start with searching a GitHub user</p>
     </div>
   );
 }

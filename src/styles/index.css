@@ -45,8 +45,8 @@ body {
 }
 /* header styles end */
 
-/* search styles start */
-.search {
+/* state styles start */
+.state-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,7 +54,7 @@ body {
   min-height: 88vh;
   user-select: none;
 }
-.search-title {
+.state-title {
   font-size: 22px;
   line-height: 140%;
   color: #808080;
@@ -62,7 +62,7 @@ body {
   text-align: center;
   margin-top: 50px;
 }
-/* search styles end */
+/* state styles end */
 
 .profile {
   display: flex;
@@ -128,5 +128,56 @@ body {
   margin-top: 10px;
   font-size: 16px;
   line-height: 19px;
+}
+.paginate {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.paginate-legend {
+  color: #808080;
+  margin-right: 16px;
+}
+.container {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  color: #808080;
+  user-select: none;
+}
+.container li {
+  margin: 0 8px;
+  cursor: pointer;
+}
+.page {
+  cursor: pointer;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.active {
+  color: #fff;
+  user-select: none;
+  background: #0064eb;
+  border-radius: 3px;
+  padding: 2px 6px;
+}
+
+.previous {
+  user-select: none;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.break {
+  /* padding: 10px; */
+}
+
+.next {
+  user-select: none;
+  margin-left: 12px;
+  cursor: pointer;
 }
 /* repos styles end */
