@@ -16,6 +16,7 @@
   justify-content: flex-start;
   padding: 40px 30px 10px 30px;
   width: 1200px;
+  min-height: calc(100vh - 80px);
 }
 .profile-info {
   margin-right: 100px;

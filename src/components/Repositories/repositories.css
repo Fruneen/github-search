@@ -80,6 +80,17 @@
   margin-left: 12px;
   cursor: pointer;
 }
+.ReposNotFound {
+  height: calc(100vh - 130px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ReposNotFound .screen-container {
+  height: auto;
+}
+
 @media screen and (max-width: 834px) {
   .repos-container {
     width: 100%;
